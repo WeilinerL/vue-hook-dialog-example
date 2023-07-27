@@ -1,4 +1,12 @@
-import { AppContext, Component, ComponentPublicInstance, createVNode, getCurrentInstance, render, VNode } from 'vue';
+import {
+  AppContext,
+  Component,
+  ComponentPublicInstance,
+  createVNode,
+  getCurrentInstance,
+  render,
+  VNode,
+} from 'vue';
 
 export interface Options {
   visible?: boolean;
@@ -42,12 +50,17 @@ const initInstance = <T extends Component>(
   return vNode;
 };
 
-export const useCommandComponent = <T extends Component>(Component: T): CommandComponent => {
+export const useCommandComponent = <T extends Component>(
+  Component: T
+): CommandComponent => {
   const appContext = getCurrentInstance()?.appContext;
   // 补丁：Component中获取当前组件树的provides
   if (appContext) {
     const currentProvides = (getCurrentInstance() as any)?.provides;
-    Reflect.set(appContext, 'provides', {...appContext.provides, ...currentProvides});
+    Reflect.set(appContext, 'provides', {
+      ...appContext.provides,
+      ...currentProvides,
+    });
   }
 
   const container = document.createElement('div');

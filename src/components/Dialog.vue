@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const props = defineProps<{ visible: boolean }>();
+const props = defineProps<{ title: string; visible: boolean }>();
 const emit = defineEmits(['close']);
 
 const close = () => {
@@ -13,7 +13,7 @@ const close = () => {
   <div class="dialog" v-if="visible">
     <div class="mask"></div>
     <div class="content">
-      <h3>标题</h3>
+      <h3>{{ title }}</h3>
       <div>内容</div>
       <footer>
         <button @click="close">关闭</button>

@@ -10,8 +10,8 @@ const MyDialog = useCommandComponent(Dialog);
 const handleDialog = () => {
   MyDialog({
     title: '父组件弹窗',
-    dialogVisible: true,
-    onCancel: () => MyDialog.close(),
+    visible: true,
+    onClose: () => MyDialog.close(),
   });
 };
 </script>
