@@ -7,7 +7,7 @@ defineProps<{ msg: string }>();
 
 const MyDialog = useCommandComponent(Dialog);
 
-const handleDialog = () => {
+const showDialog = () => {
   MyDialog({
     title: '父组件弹窗',
     visible: true,
@@ -18,7 +18,7 @@ const handleDialog = () => {
 
 <template>
   <h3>click to open dialog</h3>
-  <button @click="handleDialog">open</button>
+  <button @click="showDialog">open</button>
 </template>
 
 <style scoped></style>
